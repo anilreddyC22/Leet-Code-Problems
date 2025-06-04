@@ -19,24 +19,26 @@ class Solution {
             //}
         //}
 
-        //int i=1; 
-        //for(int j=1;j<n;j++){
-            //if(nums[j]!=nums[i-1]){
-                //nums[i]=nums[j];
-                //i++;
-            //}
-        //}
-        int count=0;
-        for (int i=0;i<n;i++){
-            if(i<n-1 && nums[i]==nums[i+1]){
-                continue;
-            }
-            else{
-                nums[count]=nums[i];
-                count++;
+        int i=1; 
+        for(int j=1;j<n;j++){
+            if(nums[j]!=nums[i-1]){
+                nums[i]=nums[j];
+                i++;
             }
         }
-        return count;
+
+        //Third approach
+        //int count=0;
+        //for (int i=0;i<n;i++){
+            //if(i<n-1 && nums[i]==nums[i+1]){
+                //continue;
+            //}
+            //else{
+                //nums[count]=nums[i];
+                //count++;
+            //}
+        //}
+        return i;
         
     }
 }
