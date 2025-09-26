@@ -1,26 +1,26 @@
 class Solution {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
-        int count=0;
-        int l=0;
-        int r=0;
-        //double maxAve= Double.NEGATIVE_INFINITY;
+        int left =0;
+        int right =0;
+        int subArrayCount =0;
+
         int sum=0;
-        while (r < arr.length){
-            sum=sum+arr[r];
-            if(r-l+1==k){
-                double average=sum/k;
-                if(average>=threshold)
+        while(right < arr.length) 
+        {
+            sum=sum+arr[right]; // 2+2+2 s is 6  r is 2
+
+            if(right-left+1==k) // 2-0+1==3
+            {
+                if(sum/k>=threshold)
                 {
-                    count++;
+                    subArrayCount+=1;
                 }
-                //maxAve=Math.max(maxAve,average);
-                sum-=arr[l];
-                l++;
+                sum=sum-arr[left];
+                left++;
             }
-            
-            r++;
+            right++;
         }
-        return count;
+        return subArrayCount;
         
     }
 }
